@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Aaliyah Antonio - Get in touch via email, phone, or send a message through the contact form.">
+  <meta name="keywords" content="Aaliyah Antonio, contact, email, phone, message, get in touch">
+  <meta name="author" content="Aaliyah Antonio">
+  <title>Aaliyah Antonio - Contact</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎀</text></svg>">
+</head>
+<body>
+  <!-- Loading Animation -->
+  <div class="loading" id="loading">
+    <div class="spinner"></div>
+  </div>
+
+  <header>
+    <div class="title hello-kitty-bow">Contact Me</div>
+    <nav class="nav-buttons">
+      <a href="home.html"><button>🏠 Home</button></a>
+      <a href="about.html"><button>📖 About Me</button></a>
+      <a href="contact.html"><button class="active">💌 Contact</button></a>
+    </nav>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="content-section">
+        <h1 class="text-center fade-in-up hello-kitty-bow">Let's Connect! 💌</h1>
+        <p class="intro-text fade-in-up">
+          I'd love to hear from you! Feel free to reach out through any of the channels below. 🌸✨
+        </p>
+
+        <div class="contact-info fade-in-up">
+          <div class="card kawaii-decoration" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; padding: 40px;">
+            <div class="text-center hello-kitty-bow">
+              <h3 style="color: #ff6b9d; margin-bottom: 15px;">📧 Email</h3>
+              <p style="font-size: 18px; color: #666;">axga417@email.com</p>
+            </div>
+            <div class="text-center paw-print">
+              <h3 style="color: #ff6b9d; margin-bottom: 15px;">📱 Phone</h3>
+              <p style="font-size: 18px; color: #666;">09984140032</p>
+            </div>
+            <div class="text-center hello-kitty-bow">
+              <h3 style="color: #ff6b9d; margin-bottom: 15px;">📍 Location</h3>
+              <p style="font-size: 18px; color: #666;">Baclaran, Paranaque City</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="scroll-animate">
+          <form action="https://formspree.io/f/mgvylqkq" method="POST" class="kawaii-decoration">
+            <h3>Send Me a Message ❣︎𐙚</h3>
+            
+            <label for="message">💕 Message</label>
+            <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
+
+            <button type="submit" class="submit-btn">Send Message ✨</button>
+          </form>
+        </div>
+
+        <!-- Social Links Placeholder -->
+        <div class="card text-center scroll-animate hello-kitty-bow" style="margin-top: 40px; padding: 30px;">
+          <h3>Follow My Journey 🌟</h3>
+          <p>Stay connected and follow my adventures in technology and faith! 🌸💕</p>
+          <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <a href="https://www.facebook.com/aaliyahxyril.antonio" target="_blank" rel="noopener noreferrer">
+              <button style="background: linear-gradient(135deg, #ff6b9d, #ffb3ba); color: white; border: none; padding: 12px 24px; border-radius: 25px; cursor: pointer; font-weight: 600; font-family: 'Fredoka', sans-serif; transition: all 0.3s ease;">
+                📘 Facebook
+              </button>
+            </a>
+            <a href="https://www.instagram.com/your_iyahhh/" target="_blank" rel="noopener noreferrer">
+              <button style="background: linear-gradient(135deg, #ff6b9d, #ffb3ba); color: white; border: none; padding: 12px 24px; border-radius: 25px; cursor: pointer; font-weight: 600; font-family: 'Fredoka', sans-serif; transition: all 0.3s ease;">
+                📸 Instagram
+              </button>
+            </a>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <p style="color: rgb(142, 75, 124); text-align: center;">&copy; 2025 Aaliyah Antonio. All rights reserved. 🌸</p>
+    <p style="margin-top: 10px; opacity: 0.8; color: rgb(142, 75, 124); text-align: center;">Let's build something amazing together! ��</p>
+  </footer>
+
+  <script>
+    // Redirect to start page on refresh (unless coming from start.html)
+    if (performance.navigation.type === performance.navigation.TYPE_RELOAD) {
+      const referrer = document.referrer;
+      if (!referrer.includes('start.html')) {
+        window.location.href = 'start.html';
+      }
+    }
+
+    // Loading animation
+    window.addEventListener('load', function() {
+      const loading = document.getElementById('loading');
+      setTimeout(() => {
+        loading.classList.add('fade-out');
+        setTimeout(() => {
+          loading.style.display = 'none';
+        }, 500);
+      }, 800);
+    });
+
+    // Scroll animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.scroll-animate').forEach(el => {
+      observer.observe(el);
+    });
+
+    
+    document.querySelector('form').addEventListener('submit', function(e) {
+      const submitBtn = document.querySelector('.submit-btn');
+      submitBtn.innerHTML = 'Sending... ⏳';
+      submitBtn.disabled = true;
+      
+  
+      setTimeout(() => {
+        submitBtn.innerHTML = 'Send Message ✨';
+        submitBtn.disabled = false;
+      }, 3000);
+    });
+  </script>
+</body>
+</html>
+  
